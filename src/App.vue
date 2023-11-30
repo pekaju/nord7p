@@ -58,11 +58,10 @@ export default {
 				});
 };
 const editCustomer = (customer) => {
-	customer.editMode = !customer.editMode;
-	if (customer.editMode && !validateSaveOperation(customer)) {
-		customer.editMode = false;
-	} else if (!customer.editMode) {
-		// If you want to save changes when exiting edit mode
+	if (customer.editMode) {
+        if (!validateSaveOperation(customer)) {
+          return;
+        }
 		fetch("http://localhost:3000/server.php", {
 			method: "PUT",
 			headers: {
@@ -74,6 +73,9 @@ const editCustomer = (customer) => {
 			.then((data) => {
 				fetchCustomers();
 			});
+			customer.editMode = false;
+	}else {
+		customer.editMode = true;
 	}
 };
 const deleteCustomer = (customerId) => {
@@ -94,6 +96,7 @@ const deleteCustomer = (customerId) => {
 const validateSaveOperation = (customer) => {
 	if (customer.FirstName.length === 0 || customer.LastName.length === 0 || customer.Username.length === 0
 		|| customer.Password.length === 0 || customer.DateOfBirth.length === 0) {
+			console.log("here")
 		alert("All fields are required.");
 		return false;
 	}
