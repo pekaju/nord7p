@@ -1,0 +1,20 @@
+{
+  "name": "vue-parts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "concurrently \"npm run vue-serve\" \"npm run php-serve\"",
+    "vue-serve": "vue-cli-service serve --port 8085 --open",
+    "php-serve": "php -S localhost:3000",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^3.2.36"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^4.3.0",
+    "concurrently": "^8.2.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
