@@ -16,8 +16,5 @@ I did not put too much focus into project structure for now, the main goal for m
 
 It does not have any unit tests included. 
 
-
-```
-
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
